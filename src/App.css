@@ -1,33 +1,196 @@
 * {
   margin: 0;
+  padding: 0;
 }
 
 .app {
   background-color: #f0f0f0;
+  height: 100%;
+  width: 100%;
 }
 
 .app__posts {
-  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 10px 30px;
+  margin-top: 6rem;
+  padding-bottom: 15rem;
 }
 
 .app__header {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
-  padding: 20px;
-  background-color: white;
-  border-bottom: 1px solid lightgray;
-  object-fit: contain;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app__feed {
+  font-size: 0.875rem;
+  color: black;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .app__header {
+    position: -webkit-sticky;
+    top: 0;
+    margin: 0px;
+    padding: 0px;
+    height: 60px;
+  }
+  .app__signup {
+    padding: 0px;
+  }
+}
+
+.app__headerRight {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.app__headerRight > p {
+  margin-right: 20px;
+}
+
+.app__headerRight > .button__logOut {
+  color: black;
+  margin: 5px;
 }
 
 .app__headerImage {
   object-fit: contain;
+  width: 100px;
+  margin-left: 20px;
+}
+
+.app__headerAvatar {
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 40px !important;
+  width: 40px !important;
+  background-color: rgb(255, 255, 255) !important;
+  /*border: 1.5px solid #c13584;*/
+  color: black !important;
+  font-family: "monospace" !important;
+  font-size: 40px !important;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.app__menuAvatar {
+  padding: 15px;
+}
+
+.app__menuItem {
+  margin: 10px;
+}
+
+.MuiMenuItem-root {
+  font-size: 14px !important;
+  padding: 10px !important;
+  line-height: 0.3 !important;
+}
+
+.MuiListItem-root {
+  margin-left: 0px !important;
 }
 
 .app__signup {
   display: flex;
   text-align: center;
   flex-direction: column;
+  margin: 5px;
+  width: 100%;
 }
 
+.app__signup > .button__signIn {
+  color: white;
+  background-color: rgb(47, 255, 57);
+  margin: 20px;
+}
+
+.app__signup > .button__signUp {
+  color: white;
+  background-color: rgb(47, 144, 255);
+  margin: 20px;
+}
+
+.uploadMessage {
+  font-size: auto;
+  padding: 20px;
+  display: flex;
+  color: gray;
+  flex-direction: column;
+  background-color: white;
+}
+
+.app__upload {
+  position: relative;
+  top: 10rem;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 0rem;
+  display: flex;
+  justify-content: center;
+}
+
+.app__loginContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: white;
+  margin-right: 30px;
+}
+
+.app__loginContainer > .button__signIn {
+  color: white;
+  background-color: rgb(47, 255, 57);
+  margin: 5px;
+}
+
+.app__loginContainer > .button__signUp {
+  color: white;
+  background-color: rgb(47, 144, 255);
+  margin: 5px;
+}
+
+.app__loginContainer > .button__signIn:hover {
+  color: black;
+  background-color: rgba(47, 255, 57, 0.575);
+  transition: 0.2ms;
+}
+
+.app__loginContainer > .button__signUp:hover {
+  color: black;
+  background-color: rgba(47, 144, 255, 0.589);
+  transition: 0.2ms;
+}
+
+.app__headerRight > .button__logOut:hover {
+  color: black;
+  background-color: rgba(184, 184, 184, 0.568);
+  transition: 0.2ms;
+}
+
+.MuiSvgIcon-root {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  color: rgb(0, 0, 0) !important;
+  font-size: 30px !important;
+}

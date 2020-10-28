@@ -1,54 +1,117 @@
 .post {
-    max-width: 400px;
-    background-color: white;
-    border: 1px solid lightgray;
-    margin-bottom: 45px;
-
+  width: fit-content;
+  max-width: 500px;
+  background-color: white;
+  border: 1px solid lightgray;
+  margin-bottom: 45px;
+  border-radius: 10px;
 }
 
 .post__input {
-    flex: 1;
-    border: none;
-    padding: 10px;
-    border-top: 1px solid lightgray;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid lightgray;
+  outline: none;
+  border-radius: 50rem;
+  margin-bottom: 10px;
 }
 
-
 .post__commentBox {
-    display: flex;
-    margin-top: 10px;
+  display: flex;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  width: 100%;
 }
 
 .post__comments {
-    padding: 20px;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+.post__comments > p > strong {
+  margin-right: 4px;
+}
+
+.post__commentDate {
+  display: flex;
+  align-items: center;
 }
 
 .post__button {
-    flex: 0;
-    border: none;
-    border-top: 1px solid lightgray;
-    color: rgb(2, 158, 255);
+  flex: 0;
+  border: none;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+  border: 1px solid lightgray;
+  border-radius: 2rem;
+  color: rgb(2, 158, 255);
+  cursor: pointer;
+  background-color: transparent;
+  margin-bottom: 10px;
 }
 
 .post__image {
-    width: 100%;
-    object-fit: contain;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-
+  width: 100%;
+  object-fit: contain;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .post__text {
-    font-weight: normal;
-    padding: 20px;
+  font-weight: normal;
+  padding: 20px;
 }
 
 .post__header {
-    display: flex;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
 }
 
 .post__avatar {
-    margin-right: 10px;
+  margin-right: 10px;
+  background-color: rgb(238, 238, 238) !important;
+  border: 1.5px solid #c13584;
+  color: black !important;
+  font-family: "monospace" !important;
+}
+
+.post__main {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+.post__text > .post__username {
+  margin-right: 5px;
+}
+
+.post__main > .post__hashtag {
+  flex: 0;
+  position: relative;
+  align-items: center;
+  margin-left: 20px;
+  color: rgb(0, 140, 255);
+  cursor: pointer;
+}
+
+.post__header > .post__date {
+  flex: 1;
+  text-align: right;
+  margin-left: 5px;
+  font-size: small;
+}
+
+.post__commentDate {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  margin-left: 50%;
+  font-size: x-small;
 }

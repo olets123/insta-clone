@@ -1,12 +1,14 @@
 import React, { useState, useEffect, forwardRef } from 'react'
 import './Post.css'
 import Avatar from "@material-ui/core/Avatar";
-import { db } from './firebase';
+import { db, storage } from './firebase';
 import firebase from 'firebase';
+import * as timeago from 'timeago.js';
+
 
 
 const Post = forwardRef(
-    ({ user, username, postId, imageUrl, caption }, ref) => {
+    ({ user, username, postId, imageUrl, caption, hashtag, timestamp, url }, ref) => {
       const [comments, setComments] = useState([]);
       const [comment, setComment] = useState("");
 
@@ -44,28 +46,40 @@ const Post = forwardRef(
     return (
         <div className="post">
             <div className="post__header">
-
             <Avatar 
             className="post__avatar"
-            alt="{username}"
-            src="https://images.unsplash.com/photo-1545996124-0501ebae84d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+            alt={username}
+            src={username}
             />
             <h3>{username}</h3>
+            <small className="post__date">
+            {timeago.format(new Date(timestamp?.toDate()))}
+            </small>
             </div>
             
-            {/* Heade _> avatar + username */ }
+            {/* Header _> avatar + username */ }
 
             <img className="post__image" src={imageUrl} alt="" />
             {/* image */}
+            <div className="post__main">
+            <h4 className="post__text"> 
+            <strong className="post__username">
+            {username}</strong> 
+            {caption}</h4> 
+            <h5 className="post__hashtag">{hashtag}</h5> 
+            </div>
 
-            <h4 className="post__text"> <strong>{username}</strong> {caption}</h4>
             {/* Username and Caption */}
 
             <div className="post__comments">
                 {comments.map((comment) => (
                     <p>
                         <strong>{comment.username}</strong>
-                        {comment.text}
+                         {comment.text}
+                   
+                    <small className="post__commentDate">
+                      {timeago.format(new Date(comment.timestamp?.toDate()))}
+                    </small>
                     </p>
                 ))}
             </div>

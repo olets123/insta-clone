@@ -1,4 +1,4 @@
-import { Input, Button } from '@material-ui/core';
+import { Input, Button, Avatar } from '@material-ui/core';
 import React, { useState } from 'react';
 import firebase from "firebase";
 import { storage, db } from './firebase';
@@ -10,6 +10,8 @@ function ImageUpload({username}) {
     const [url, setUrl] = useState('');
     const [progress, setProgress] = useState(0);
     const [caption, setCaption] = useState('');
+    const [hashtag, setHashtag] = useState('');
+    
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
@@ -44,12 +46,14 @@ function ImageUpload({username}) {
                     db.collection('posts').add({
                       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                       caption: caption,
+                      hashtag: hashtag,
                       imageUrl: url,
                       username: username
                     });
 
                     setProgress(0);
                     setCaption('');
+                    setHashtag('');
                     setImage(null);
             })
 
@@ -60,14 +64,26 @@ function ImageUpload({username}) {
     return (
 
         <div className="imageupload">
+            <Avatar 
+            className="imageupload__avatar"
+            alt={username}
+            src={username}
+            />
+            <h1>Image Upload for <strong>{username}</strong></h1>
             
-            <progress className="imageupload__progess" value={progress} max ="100" />
-            <Input type="text" placeholder=" Enter a caption" onChange={event => setCaption(event.target.value)} value={caption} />
-            <Input type="file" onChange={handleChange} />
-            <Button onClick={handleUpload}>
+            <Input className="input__caption" type="text" placeholder=" Enter a caption" 
+            onChange={event => setCaption(event.target.value)} value={caption} />
+            <Input className="input__caption" type="text" placeholder=" Enter your hashtag"
+            onChange={event => setHashtag(event.target.value)} value={hashtag} />
+            <div className="imageupload__upload">
+                <label>Choose image</label>
+            <input type="file" name="upload" onChange={handleChange} />
+            </div>
+            
+            <progress className="imageupload__progress" value={progress} max ="100" />
+            <Button className="imageupload__button" onClick={handleUpload}>
                 Upload
             </Button>
-
         </div>
     )
   }
